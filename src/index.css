@@ -117,4 +117,57 @@ a {
     font-size: 18px;
     font-weight: 400;
 }
-/* END FEDD CSS */
+.recaps-div {
+   display: flex;
+   flex-direction: column;
+   gap: 20px; 
+}
+/* END FEED CSS */
+
+/* START RECAP CSS */
+
+#Recap {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    gap: 25px;
+    width: 260px;
+    background-color: #FBFBFB;
+}
+
+.icon-Calories {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 5px;
+}
+.icon-Proteines {
+    background-color: rgba(74, 184, 255, 0.2);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 5px;
+}
+.icon-Glucides {
+    background-color: rgba(249, 206, 35, 0.2);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 5px;
+}
+.icon-Lipides {
+    background-color: rgba(253, 81, 129, 0.2);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.Recap-desc .Recap-desc-value {
+    color: #282D30;
+    font-size: 20px;
+}
+
+.Recap-desc .Recap-desc-title {
+    color: #74798C;
+    font-size: 14px;
+}
+
+/* END RECAP CSS */
