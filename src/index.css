@@ -1,0 +1,120 @@
+/* RESET CSS */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* START NAVBAR CSS */
+#NavBar {
+    padding: 15px 25px 15px 25px;
+    background-color: #020203;
+}
+
+#NavBar .logo{
+    width: 178px;
+}
+
+#NavBar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+}
+
+#NavBar ul a:hover{
+    text-decoration: underline;
+}
+/* END NAVBAR CSS */
+
+/* START HOME CSS */
+.home-content {
+    display: flex;
+}
+/* END HOME CSS */
+
+/* START VERTICAL NAVBAR CSS */
+#NavBar-vertical {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: #020203;
+    padding: 0px 25px;
+    position: fixed;
+}
+
+#NavBar-vertical .all-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#NavBar-vertical .btn-icon {
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    
+}
+
+#NavBar-vertical .btn-icon:hover {
+    background: rgb(223, 223, 223);   
+}
+
+#NavBar-vertical p {
+    position: absolute;
+    bottom: 195px;
+    left: -40px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: white;
+    font-size: 15px;
+    white-space: nowrap;
+}
+/* END VERTICAL NAVBAR CSS */
+
+/* START FEED CSS */
+#Feed {
+    margin-left: 120px;
+}
+
+.hello-text {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.hello-text span {
+    color: #FF0101;
+}
+
+.motivation-text {
+    font-size: 18px;
+    font-weight: 400;
+}
+/* END FEDD CSS */
