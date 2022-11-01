@@ -1,15 +1,28 @@
-import { Recap } from './';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Presentation , Recap } from './';
+import { fetchFromAPI } from '../utils/fetchFromAPI';
+
+
 
 const Feed = () => {
+  let params = useParams();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    fetchFromAPI(`user/${params.id}/`).then((data) => setUser(data));
+  }, []);
+
+  //useEffect(() => console.log(user));
+
   return (
     <div id='Feed'>
-        <p className="hello-text">Bonjour <span>Name</span></p>
-        <p className="motivation-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        {user && <Presentation user={user}/>}
         <div className='recaps-div'>
-          <Recap type="Calories" value="1,930"/>
-          <Recap type="Proteines" value="155"/>
-          <Recap type="Glucides" value="290"/>
-          <Recap type="Lipides" value="50"/>
+          {user && <Recap type="Calories" user={user}/>}
+          {user && <Recap type="Proteines" user={user}/>}
+          {user && <Recap type="Glucides" user={user}/>}
+          {user && <Recap type="Lipides" user={user}/>}
         </div>
         
   </div>

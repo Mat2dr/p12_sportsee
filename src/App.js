@@ -9,7 +9,7 @@ const App = () => (
         <div className='home-content'>
             <VerticalNavBar />
             <Routes>
-                <Route path="/" exact element={<Feed />} />
+                <Route path="/user/:id" exact element={<Feed />} />
             </Routes>
         </div> 
     </BrowserRouter>
