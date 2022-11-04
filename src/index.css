@@ -52,21 +52,15 @@ a {
 }
 /* END NAVBAR CSS */
 
-/* START HOME CSS */
-.home-content {
-    display: flex;
-}
-/* END HOME CSS */
 
 /* START VERTICAL NAVBAR CSS */
 #NavBar-vertical {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     background-color: #020203;
-    padding: 0px 25px;
+    padding: 200px 25px 0px 25px;
     position: fixed;
 }
 
@@ -101,10 +95,28 @@ a {
 
 /* START FEED CSS */
 #Feed {
-    margin-left: 120px;
+    margin-left: 160px;
+}
+.data-recap {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.charts-div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 65%;
+}
+
+.charts-div-line-2 {
+    display: flex;
+    justify-content: space-between;
 }
 
 .hello-text {
+    padding-top: 50px;
     font-size: 48px;
     font-weight: 400;
 }
@@ -120,7 +132,7 @@ a {
 .recaps-div {
    display: flex;
    flex-direction: column;
-   gap: 20px; 
+   justify-content: space-between;
 }
 /* END FEED CSS */
 
@@ -171,3 +183,139 @@ a {
 }
 
 /* END RECAP CSS */
+
+/* START BARCHART CSS */
+
+#bar-charts {
+    width: 100%;
+    background-color: #FBFBFB;
+    padding: 30px;
+}
+
+#bar-charts .bar-charts-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+#bar-charts .bar-charts-header p{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#bar-charts .bar-charts-header ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+#bar-charts .bar-charts-header-legend li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+#bar-charts .bar-charts-header-legend li::before {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 15px;
+  }
+#bar-charts .bar-charts-header-legend li:first-child::before {
+    background-color: #282d30;
+}
+#bar-charts .bar-charts-header-legend li:last-child::before {
+    background-color: #e60000;
+}
+
+#bar-charts .custom-tooltip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #e60000;
+    color: white;
+    padding: 10px;
+}
+
+#bar-charts .custom-tooltip label-kg {
+    padding-bottom: 10px;
+}
+
+/* END BARCHART CSS */
+
+/* START LINECHART CSS */
+
+#line-charts {
+    width: 270px;
+    height: 270px;
+    background-color: #FF0000;
+    border-radius: 10px;
+}
+
+#line-charts .line-charts-title{
+    color: white;
+    padding: 30px;
+}
+
+#line-charts .custom-tooltip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+/* END LINECHART CSS */
+
+/* START RADARCHART CSS */
+
+#radar-charts {
+    width: 270px;
+    height: 270px;
+    background-color: #282D30;
+    border-radius: 10px;
+}
+
+#radar-charts .line-charts-title{
+    color: white;
+    padding: 30px;
+}
+
+/* END RADARCHART CSS */
+
+/* START RADARCHART CSS */
+
+#pie-charts {
+    width: 270px;
+    height: 270px;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+}
+
+#pie-charts p{
+    padding: 30px 0px 0px 30px;
+}
+
+#pie-charts .custom-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+#pie-charts .custom-legend p{
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #74798C;
+}
+
+
+/* END RADARCHART CSS */

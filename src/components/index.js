@@ -3,3 +3,7 @@ export { default as VerticalNavBar } from './VerticalNavBar';
 export { default as Feed } from './Feed';
 export { default as Presentation } from './Presentation';
 export { default as Recap } from './Recap';
+export { default as BarChartComp } from './BarChartComp';
+export { default as LineChartComp } from './LineChartComp';
+export { default as RadarChartComp } from './RadarChartComp';
+export { default as PieChartComp } from './PieChartComp';
