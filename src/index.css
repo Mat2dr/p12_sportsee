@@ -11,6 +11,7 @@ html, body {
 body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-y: hidden;
 }
 img, picture, video, canvas, svg {
     display: block;

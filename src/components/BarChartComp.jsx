@@ -33,17 +33,14 @@ const BarChartComp = (props) => {
         </ul>
       </div>
       <ResponsiveContainer width="100%" aspect={4}>
-        <BarChart
-          width={500}
-          height={300}
-          data={ userSessions }
-        >
-          <CartesianGrid strokeDasharray="2" vertical={false} />
+        <BarChart data={ userSessions }>
+          <CartesianGrid strokeDasharray="4" vertical={false} />
           <XAxis dataKey="day" tickMargin={20} tickSize={0}/>
-          <YAxis dataKey="kilogram" orientation="right" axisLine={false} tickMargin={40} tickSize={0} tickCount={3} domain={["dataMin-2", "dataMax+1"]}/>
+          <YAxis dataKey="kilogram" stroke="#282D30" yAxisId="kilogram" orientation="right" axisLine={false} tickMargin={40} tickSize={0} tickCount={3} domain={['dataMin - 1', 'dataMax + 2']}/>
+          <YAxis dataKey="calories" stroke="#E60000" yAxisId="calories" orientation="left" axisLine={false} tickMargin={30} tickSize={0} tickCount={3} domain={[0, 'dataMax + 50']}/>
           <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="kilogram" fill="#282D30" barSize={9} radius={[10, 10, 0, 0]} />
-          <Bar dataKey="calories" fill="#E60000" barSize={9} radius={[10, 10, 0, 0]} />
+          <Bar dataKey="kilogram" yAxisId="kilogram" fill="#282D30" barSize={9} radius={[10, 10, 0, 0]} />
+          <Bar dataKey="calories" yAxisId="calories" fill="#E60000" barSize={9} radius={[10, 10, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
