@@ -13,7 +13,7 @@ function Recap(props) {
     let countValue = '';
     let icon = '';
     let iconAlt = '';
-    let iconColor = '';
+    let valueLabel = '';
   
     useEffect(() => {
         fetchFromAPI(`user/${props.userId.id}/`)
@@ -29,18 +29,22 @@ function Recap(props) {
         countValue = calorieCount;
         icon = energyIcon;
         iconAlt= 'icon calories';
+        valueLabel = calorieCount + 'KCal'
     } else if( props.type === "Proteines" ) {
         countValue = proteinCount;
         icon = chickenIcon;
         iconAlt= 'icon proteines';
+        valueLabel = proteinCount + 'g'
     } else if( props.type === "Glucides" ) {
         countValue = carbohydrateCount;
         icon = appleIcon;
         iconAlt= 'icon glucides';
+        valueLabel = carbohydrateCount + 'g'
     } else if( props.type === "Lipides" ) {
         countValue = lipidCount;
         icon = cheeseburgerIcon;
         iconAlt= 'icon lipides';
+        valueLabel = lipidCount + 'g'
     }
 
   return (
@@ -49,7 +53,7 @@ function Recap(props) {
             <img src={ icon } alt={ iconAlt } />
         </div>
         <div className='Recap-desc'>
-            <p className='Recap-desc-value'>{ countValue }</p>
+            <p className='Recap-desc-value'>{ valueLabel }</p>
             <p className='Recap-desc-title'>{ props.type }</p>
         </div>
     </div>

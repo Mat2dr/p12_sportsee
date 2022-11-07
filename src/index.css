@@ -176,6 +176,8 @@ a {
 .Recap-desc .Recap-desc-value {
     color: #282D30;
     font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 5px;
 }
 
 .Recap-desc .Recap-desc-title {
