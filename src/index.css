@@ -9,7 +9,7 @@ html, body {
     height: 100%;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-y: hidden;
 }
@@ -52,6 +52,22 @@ a {
 #NavBar ul a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 1300px) {
+    #NavBar {
+        padding: 10px 25px 10px 10px;
+        background-color: #020203;
+    }
+    #NavBar .logo{
+        width: 130px;
+    }
+    #NavBar ul {
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+        padding: 0px;
+    }
+}
 /* END NAVBAR CSS */
 
 
@@ -86,12 +102,29 @@ a {
 #NavBar-vertical p {
     position: absolute;
     bottom: 195px;
-    left: -40px;
+    left: -27px;
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
     color: white;
     font-size: 15px;
     white-space: nowrap;
+}
+@media (max-width: 1300px) {
+    #NavBar-vertical {
+        height: 100%;
+        background-color: #020203;
+        padding: 200px 10px 0px 10px;
+        position: fixed;
+    }
+    #NavBar-vertical .btn-icon {
+        padding: 10px;  
+    }
+    #NavBar-vertical .btn-icon img{
+        width: 30px; 
+    }
+    #NavBar-vertical p {
+        left: -50px;
+    }
 }
 /* END VERTICAL NAVBAR CSS */
 
@@ -110,6 +143,7 @@ a {
     flex-direction: column;
     gap: 30px;
     width: 75%;
+    max-width: 1000px;
 }
 
 .charts-div-line-2 {
@@ -130,11 +164,31 @@ a {
 .motivation-text {
     font-size: 18px;
     font-weight: 400;
+    padding-bottom: 20px;
 }
 .recaps-div {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+}
+
+@media (max-width: 1300px) {
+    #Feed {
+        margin-left: 90px;
+    }
+    .hello-text {
+        padding-top: 10px;
+    }
+    .motivation-text {
+        padding-bottom: 10px;
+    }
+    .data-recap {
+        gap: 10px;
+    }
+    .charts-div {
+        gap: 10px;
+        width: 85%;
+    }
 }
 /* END FEED CSS */
 
@@ -185,13 +239,37 @@ a {
     color: #74798C;
     font-size: 14px;
 }
-
+@media (max-width: 1300px) {
+    #Recap {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        width: 100%;
+        background-color: #FBFBFB;
+    }
+    #Recap {
+        text-align: center;
+    }
+    .icon-Calories {
+        padding: 15px;
+    }
+    .icon-Proteines {
+        padding: 15px;
+    }
+    .icon-Glucides {
+        padding: 15px;
+    }
+    .icon-Lipides {
+        padding: 15px;
+    }
+}
 /* END RECAP CSS */
 
 /* START BARCHART CSS */
 
 #bar-charts {
     width: 100%;
+    max-width: 1000px;
     background-color: #FBFBFB;
     padding: 30px;
 }
@@ -305,7 +383,7 @@ a {
 
 /* END RADARCHART CSS */
 
-/* START RADARCHART CSS */
+/* START PIECHART CSS */
 
 #pie-charts {
     width: 270px;
@@ -334,6 +412,19 @@ a {
     font-weight: 500;
     color: #74798C;
 }
+/* END PIECHART CSS */
 
-
-/* END RADARCHART CSS */
+@media (max-width: 1300px) {
+    #line-charts {
+        width: 250px;
+        height: 250px;
+    }
+    #radar-charts {
+        width: 250px;
+        height: 250px;
+    }
+    #pie-charts {
+        width: 250px;
+        height: 250px;
+    }
+}
