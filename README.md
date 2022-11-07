@@ -33,7 +33,11 @@ Install dependencies:
 ```
 
 Launch the Front-end on the port 3001:
-`npm start --port 3001`.
+
+```sh
+npm start --port 3001
+```
+
 Front-end is now rendered at URL http://localhost:3001.
 
 To finish you can build the project:
