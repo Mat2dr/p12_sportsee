@@ -289,9 +289,9 @@ a {
     border-radius: 10px;
 }
 
-#radar-charts .line-charts-title{
-    color: white;
-    padding: 30px;
+#radar-charts tspan{
+    font-size: 12px;
+    font-weight: 600;
 }
 
 /* END RADARCHART CSS */
