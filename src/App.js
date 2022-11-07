@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-import { Feed, HorizontalNavBar, VerticalNavBar } from './components';
+import { Feed, HorizontalNavBar, VerticalNavBar, PageNotFound } from './components';
 
 const App = () => (
     <BrowserRouter>
@@ -10,6 +10,7 @@ const App = () => (
             <VerticalNavBar />
             <Routes>
                 <Route path="/user/:id" exact element={<Feed />} />
+                <Route path="/*" element={<PageNotFound />} />
             </Routes>
         </div> 
     </BrowserRouter>

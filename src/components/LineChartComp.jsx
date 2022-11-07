@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const LineChartComp = (props) => {
 

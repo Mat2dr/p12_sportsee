@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const BarChartComp = (props) => {
 
@@ -10,8 +10,6 @@ const BarChartComp = (props) => {
   useEffect(() => {
     fetchFromAPI(`user/${props.userId.id}/activity`).then((data) => setUserSessions(data.data.sessions));
   }, []);
-
-  //useEffect(() => {console.log(userSessions);})
 
   //Reformating Sessions label (2022-07-01,...) into (1,...)
   function CustomDatas(data) {

@@ -428,3 +428,23 @@ a {
         height: 250px;
     }
 }
+/* START PAGENOTFOUND CSS */
+.page-not-found {
+    margin-left: 150px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-not-found span{
+    font-size: 150px;
+    font-weight: 600;
+    color: #e60000;
+}
+.page-not-found p{
+    font-size: 25px;
+    font-weight: 600;
+}
+/* END PAGENOTFOUND CSS */

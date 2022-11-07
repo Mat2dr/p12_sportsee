@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 const RadarChartComp = (props) => {
 
