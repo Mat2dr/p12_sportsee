@@ -46,6 +46,7 @@ a {
     font-size: 24px;
     font-weight: 400;
     color: white;
+    padding: 0px 60px 0px 0px;
 }
 
 #NavBar ul a:hover{
@@ -219,6 +220,7 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
+    color: #74798C;
   }
 #bar-charts .bar-charts-header-legend li::before {
     display: block;
@@ -232,6 +234,11 @@ a {
 }
 #bar-charts .bar-charts-header-legend li:last-child::before {
     background-color: #e60000;
+}
+
+#bar-charts tspan{
+    font-size: 14px;
+    font-weight: 600;
 }
 
 #bar-charts .custom-tooltip {

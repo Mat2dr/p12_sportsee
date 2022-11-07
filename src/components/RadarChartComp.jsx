@@ -10,8 +10,6 @@ const RadarChartComp = (props) => {
   useEffect(() => {
     fetchFromAPI(`user/${props.userId.id}/performance`).then((data) => setUserPerf(data.data.data));
   }, []);
-
-  useEffect(() => { console.log(userPerf)})
   
 
     //Reformating perf label (1,2,3,...) into (Intensité,Vitesse,Force,...)
@@ -36,7 +34,6 @@ const RadarChartComp = (props) => {
         })
   
         formatedUserPerf = FormatedSessions;
-        console.log(formatedUserPerf)
       }
     }
     //reformat the data from userAverageSessions
