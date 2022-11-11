@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { getUserInfos } from '../utils/fetchFromAPI';
 
 const Presentation = (props) => {
-  //console.log(props.userId.id);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState({
+    firstName:'',
+  });
+  const userId = props.userId.id;
 
   useEffect(() => {
-    fetchFromAPI(`user/${props.userId.id}/`).then((data) => setUser(data.data.userInfos.firstName));
-  }, []);
+    async function getUserInfosOnLoad(id) {
+      const userData = await getUserInfos(id);
+      setUser({
+        firstName: userData.data.userInfos.firstName,
+      });
+    }
 
-  //useEffect(() => console.log(user));
+    getUserInfosOnLoad(userId)
+  }, []);
 
   return (
     <div>
-         <p className="hello-text">Bonjour <span>{ user }</span></p>
+         <p className="hello-text">Bonjour <span>{ user.firstName }</span></p>
         <p className="motivation-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </div>
   )

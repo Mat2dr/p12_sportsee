@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { getUserSession } from '../utils/fetchFromAPI';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const BarChartComp = (props) => {
+  const userId = props.userId.id;
 
   const [userSessions, setUserSessions] = useState('');
   let formatedUserSession = [];
 
   useEffect(() => {
-    fetchFromAPI(`user/${props.userId.id}/activity`).then((data) => setUserSessions(data.data.sessions));
+    async function getUserSessionOnLoad(id) {
+      const userData = await getUserSession(id);
+      setUserSessions(userData.data.sessions)
+    }
+
+    getUserSessionOnLoad(userId);
   }, []);
 
   //Reformating Sessions label (2022-07-01,...) into (1,...)
@@ -16,12 +22,12 @@ const BarChartComp = (props) => {
     if (userSessions) {
       //Add the label to the data
       const FormatedSessions = data.map((session, index) => {
-      return {
-        label: index + 1,
-        day: session.day,
-        kilogram: session.kilogram,
-        calories: session.calories
-      }
+        return {
+          label: index + 1,
+          day: new Date(session.day).toLocaleDateString("en-GB"),
+          kilogram: session.kilogram,
+          calories: session.calories
+        }
       })
 
       formatedUserSession = FormatedSessions;
@@ -55,7 +61,7 @@ const BarChartComp = (props) => {
       <ResponsiveContainer height="100%" width="100%" aspect={4}>
         <BarChart data={ formatedUserSession }>
           <CartesianGrid strokeDasharray="4" vertical={false} />
-          <XAxis dataKey="label" stroke='#9B9EAC' tickMargin={20} tickSize={0}/>
+          <XAxis dataKey="day" stroke='#9B9EAC' tickMargin={20} tickSize={0}/>
           <YAxis dataKey="kilogram" stroke="#282D30" yAxisId="kilogram" orientation="left" axisLine={false} tickMargin={40} tickSize={0} tickCount={3} domain={['dataMin - 1', 'dataMax + 2']}/>
           <YAxis dataKey="calories" stroke="#E60000" yAxisId="calories" orientation="right" axisLine={false} tickMargin={30} tickSize={0} tickCount={3} domain={[0, 'dataMax + 50']}/>
           <Tooltip content={<CustomTooltip />} />

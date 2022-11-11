@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend } from 'recharts';
+import { getUserInfos } from '../utils/fetchFromAPI';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const PieChartComp = (props) => {
-
+    const userId = props.userId.id;
     const [userScore, setUserScore] = useState('');
 
     useEffect(() => {
-      fetchFromAPI(`user/${props.userId.id}/`).then((data) => setUserScore(data.data.todayScore));
+      async function getUserInfosOnLoad(id) {
+        const userData = await getUserInfos(id);
+        setUserScore(userData.data.todayScore)
+      }
+  
+      getUserInfosOnLoad(userId)
     }, []);
 
     const CustomLegend = ({ payload }) => (

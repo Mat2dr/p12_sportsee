@@ -1,9 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Presentation , Recap , BarChartComp, LineChartComp , RadarChartComp , PieChartComp } from './';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
-
-
 
 const Feed = () => {
   let params = useParams();

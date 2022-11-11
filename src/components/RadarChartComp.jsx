@@ -1,51 +1,57 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { getUserPerf } from '../utils/fetchFromAPI';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 const RadarChartComp = (props) => {
+  const userId = props.userId.id;
 
   const [userPerf, setUserPerf] = useState('');
   let formatedUserPerf = [];
 
-  useEffect(() => {
-    fetchFromAPI(`user/${props.userId.id}/performance`).then((data) => setUserPerf(data.data.data));
-  }, []);
+    useEffect(() => {
+      async function getUserPerfOnLoad(id) {
+        const userData = await getUserPerf(id);
+        setUserPerf(userData.data.data);
+      }
+  
+      getUserPerfOnLoad(userId)
+    }, []);
   
 
     //Reformating perf label (1,2,3,...) into (Intensité,Vitesse,Force,...)
-    function CustomDatas(perfs) {
+    function CustomDatasPerf(perfs) {
       const labels = {
         1: "Cardio",
         2: "Energie",
         3: "Endurance",
         4: "Force",
         5: "Vitesse",
-        6: "Intensité"
+        6: "Intensité",
       }
   
       if (userPerf) {
         //Add the label to the data
         const FormatedSessions = perfs.map((perf) => {
-        return {
-          value: perf.value,
-          kind: perf.kind,
-          label: labels[perf.kind]
-        }
+          return {
+            valuePerf: parseInt(perf.value),
+            kind: perf.kind,
+            label: labels[perf.kind],
+          }
         })
   
         formatedUserPerf = FormatedSessions;
       }
     }
-    //reformat the data from userAverageSessions
-    CustomDatas(userPerf);
+    //reformat the data from userPerf
+    CustomDatasPerf(userPerf);
 
   return (
     <div id='radar-charts'>
         <ResponsiveContainer height="100%" width="100%" aspect={1}>
-            <RadarChart margin={{ top: 0, bottom: 0, left: 25, right: 25}} outerRadius="80%" startAngle={210} endAngle={570} data={ formatedUserPerf }>
+            <RadarChart data={ formatedUserPerf } margin={{ top: 0, bottom: 0, left: 25, right: 25}} outerRadius="80%" startAngle={210} endAngle={570}>
                 <PolarGrid radialLines={false}/>
                 <PolarAngleAxis dataKey="label" tickLine={false} axisLine={true} stroke="#FFFFFF"/>
-                <Radar name="value" dataKey="value" stroke="transparent" fill="#FF0101" fillOpacity={0.7} />
+                <Radar name="valuePerf" dataKey="valuePerf" stroke="transparent" fill="#FF0101" fillOpacity={0.7} />
             </RadarChart>
         </ResponsiveContainer>
     </div>
