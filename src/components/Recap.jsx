@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { getUserInfos } from '../utils/fetchFromAPI';
 import energyIcon from '../utils/energy.svg';
 import chickenIcon from '../utils/chicken.svg';
 import appleIcon from '../utils/apple.svg';
 import cheeseburgerIcon from '../utils/cheeseburger.svg';
 
 function Recap(props) {
+    const userId = props.userId.id;
+    
     const [calorieCount, setCalorieCount] = useState('');
     const [proteinCount, setProteinCount] = useState('');
     const [carbohydrateCount, setCarbohydrateCount] = useState('');
@@ -14,15 +16,17 @@ function Recap(props) {
     let icon = '';
     let iconAlt = '';
     let valueLabel = '';
-  
-    useEffect(() => {
-        fetchFromAPI(`user/${props.userId.id}/`)
-        .then((data) => {
-            setCalorieCount(data.data.keyData.calorieCount);
-            setProteinCount(data.data.keyData.proteinCount);
-            setCarbohydrateCount(data.data.keyData.carbohydrateCount);
-            setLipidCount(data.data.keyData.lipidCount);
-        });
+    
+      useEffect(() => {
+        async function getUserInfosOnLoad(id) {
+          const userData = await getUserInfos(id);
+          setCalorieCount(userData.data.keyData.calorieCount);
+          setProteinCount(userData.data.keyData.proteinCount);
+          setCarbohydrateCount(userData.data.keyData.carbohydrateCount);
+          setLipidCount(userData.data.keyData.lipidCount);
+        }
+    
+        getUserInfosOnLoad(userId)
       }, []);
 
     if ( props.type === "Calories") {

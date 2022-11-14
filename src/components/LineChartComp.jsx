@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { getUserAverageSession } from '../utils/fetchFromAPI';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const LineChartComp = (props) => {
+  const userId = props.userId.id;
 
   const [userAverageSessions, setUserAverageSessions] = useState('');
   let formatedUserAverageSessions = [];
 
   useEffect(() => {
-    fetchFromAPI(`user/${props.userId.id}/average-sessions`).then((data) => setUserAverageSessions(data.data.sessions));
-  }, []);
+    async function getUserAverageSessionOnLoad(id) {
+      const userData = await getUserAverageSession(id);
+      setUserAverageSessions(userData.data.sessions)
+    }
 
-  //useEffect(() => console.log(userAverageSessions));
+    getUserAverageSessionOnLoad(userId);
+  }, []);
 
   //Reformating day (1,2,3,...) into (L,M,M,...)
   function CustomDatas(userSessions) {
@@ -28,11 +32,11 @@ const LineChartComp = (props) => {
     if (userSessions) {
       //Add the letter of the day to the data
       const FormatedSessions = userSessions.map((session) => {
-      return {
-        sessionLength: session.sessionLength,
-        day: session.day,
-        dayLetter: daysOfTheWeek[session.day]
-      }
+        return {
+          sessionLength: session.sessionLength,
+          day: session.day,
+          dayLetter: daysOfTheWeek[session.day]
+        }
       })
 
       //Add before and after session to make the graph is full width
