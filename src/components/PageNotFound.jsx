@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ *@name PageNotFound
+ *@description Component error when page not found
+ * @return {JSX.Element}} 
+ */
 const PageNotFound = () => {
   return (
     <div className='page-not-found'>

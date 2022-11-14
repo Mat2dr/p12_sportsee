@@ -5,6 +5,12 @@ import chickenIcon from '../utils/chicken.svg';
 import appleIcon from '../utils/apple.svg';
 import cheeseburgerIcon from '../utils/cheeseburger.svg';
 
+/**
+ *@name Recap
+ *@description Component to display recap of calories or protein ...
+ *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
 function Recap(props) {
     const userId = props.userId.id;
     

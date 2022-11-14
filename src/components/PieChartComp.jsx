@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { getUserInfos } from '../utils/fetchFromAPI';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
+/**
+ *@name PieChartComp
+ *@description Chart to display the score of the user
+ *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
 const PieChartComp = (props) => {
     const userId = props.userId.id;
     const [userScore, setUserScore] = useState('');

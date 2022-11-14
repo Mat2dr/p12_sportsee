@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { getUserAverageSession } from '../utils/fetchFromAPI';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
+/**
+ *@name PieChartComp
+ *@description Chart to display the average sessions of the user
+ *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
 const LineChartComp = (props) => {
   const userId = props.userId.id;
 

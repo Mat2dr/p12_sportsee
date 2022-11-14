@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { getUserSession } from '../utils/fetchFromAPI';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
+/**
+ *@name BarChartComp
+ *@description Chart to display User sessions
+  *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
+
 const BarChartComp = (props) => {
   const userId = props.userId.id;
 

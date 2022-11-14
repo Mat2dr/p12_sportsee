@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { getUserPerf } from '../utils/fetchFromAPI';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
+/**
+ *@name RadarChartComp
+ *@description Chart to display the perf of the user
+ *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
 const RadarChartComp = (props) => {
   const userId = props.userId.id;
 

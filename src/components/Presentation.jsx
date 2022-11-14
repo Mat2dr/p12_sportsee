@@ -1,6 +1,13 @@
+import PropTypes from "prop-types";
 import { useState, useEffect } from 'react';
 import { getUserInfos } from '../utils/fetchFromAPI';
 
+/**
+ *@name Presentation
+ *@description Component to display the name of the user
+ *@param {number} {props}
+ * @return {JSX.Element}} 
+ */
 const Presentation = (props) => {
   const [user, setUser] = useState({
     firstName:'',
@@ -24,6 +31,10 @@ const Presentation = (props) => {
         <p className="motivation-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </div>
   )
+}
+
+Presentation.propTypes = {
+  firstName: PropTypes.string,
 }
 
 export default Presentation
