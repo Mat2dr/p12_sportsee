@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { getUserPerf } from '../utils/fetchFromAPI';
+import { getUserPerf } from '../Services/getUserPerf';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 /**
@@ -17,14 +18,18 @@ const RadarChartComp = (props) => {
     useEffect(() => {
       async function getUserPerfOnLoad(id) {
         const userData = await getUserPerf(id);
-        setUserPerf(userData.data.data);
+        setUserPerf(userData)
       }
   
-      getUserPerfOnLoad(userId)
+      getUserPerfOnLoad(userId);
     }, []);
   
-
-    //Reformating perf label (1,2,3,...) into (Intensité,Vitesse,Force,...)
+    /**
+     * @name CustomDatasPerf
+     * @description Reformating perf label (1,2,3,...) into (Intensité,Vitesse,Force,...)
+     * @param {Object} {perfs}
+     * @return {JSX.Element}} 
+    */
     function CustomDatasPerf(perfs) {
       const labels = {
         1: "Cardio",
@@ -37,10 +42,10 @@ const RadarChartComp = (props) => {
   
       if (userPerf) {
         //Add the label to the data
-        const FormatedSessions = perfs.map((perf) => {
+        const FormatedSessions = perfs.data.map((perf) => {
           return {
             valuePerf: parseInt(perf.value),
-            kind: perf.kind,
+            kind: parseInt(perf.kind),
             label: labels[perf.kind],
           }
         })
@@ -65,3 +70,7 @@ const RadarChartComp = (props) => {
 }
 
 export default RadarChartComp
+
+RadarChartComp.propTypes = {
+  formatedUserPerf: PropTypes.object  
+};

@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { getUserInfos } from '../utils/fetchFromAPI';
+import { getUserInfos } from '../Services/getUserInfos';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 /**
- *@name PieChartComp
- *@description Chart to display the score of the user
- *@param {number} {props}
+ * @name PieChartComp
+ * @description Chart to display the score of the user
+ * @param {number} {props}
  * @return {JSX.Element}} 
  */
 const PieChartComp = (props) => {
@@ -14,8 +15,8 @@ const PieChartComp = (props) => {
 
     useEffect(() => {
       async function getUserInfosOnLoad(id) {
-        const userData = await getUserInfos(id);
-        setUserScore(userData.data.todayScore)
+        const userInfoData = await getUserInfos(id);
+        setUserScore(userInfoData.score)
       }
   
       getUserInfosOnLoad(userId)
@@ -62,3 +63,8 @@ const PieChartComp = (props) => {
 }
 
 export default PieChartComp
+
+PieChartComp.propTypes = {
+  value: PropTypes.number,
+  name: PropTypes.string
+};

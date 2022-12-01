@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from 'react';
-import { getUserInfos } from '../utils/fetchFromAPI';
+import { getUserInfos } from '../Services/getUserInfos';
 
 /**
  *@name Presentation
@@ -16,9 +16,9 @@ const Presentation = (props) => {
 
   useEffect(() => {
     async function getUserInfosOnLoad(id) {
-      const userData = await getUserInfos(id);
+      const userInfoData = await getUserInfos(id);
       setUser({
-        firstName: userData.data.userInfos.firstName,
+        firstName: userInfoData.firstName,
       });
     }
 

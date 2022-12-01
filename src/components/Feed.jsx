@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { Presentation , Recap , BarChartComp, LineChartComp , RadarChartComp , PieChartComp } from './';
 
@@ -33,3 +34,7 @@ const Feed = () => {
 }
 
 export default Feed
+
+Feed.propTypes = {
+  params: PropTypes.object  
+};

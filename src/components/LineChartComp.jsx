@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { getUserAverageSession } from '../utils/fetchFromAPI';
+import { getUserAverageSession } from '../Services/getUserAverageSession';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 /**
@@ -17,13 +18,18 @@ const LineChartComp = (props) => {
   useEffect(() => {
     async function getUserAverageSessionOnLoad(id) {
       const userData = await getUserAverageSession(id);
-      setUserAverageSessions(userData.data.sessions)
+      setUserAverageSessions(userData.sessions)
     }
 
     getUserAverageSessionOnLoad(userId);
   }, []);
 
-  //Reformating day (1,2,3,...) into (L,M,M,...)
+   /**
+     * @name CustomDatas
+     * @description Reformating day (1,2,3,...) into (L,M,M,...)
+     * @param {Object} {userSessions}
+     * @return {JSX.Element}} 
+    */
   function CustomDatas(userSessions) {
     const daysOfTheWeek = {
       1: "L",
@@ -93,3 +99,7 @@ const LineChartComp = (props) => {
 }
 
 export default LineChartComp
+
+LineChartComp.propTypes = {
+  formatedUserAverageSessions: PropTypes.array
+};
