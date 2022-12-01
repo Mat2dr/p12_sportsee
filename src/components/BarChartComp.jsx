@@ -1,6 +1,14 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { getUserSession } from '../utils/fetchFromAPI';
+import { getUserActivity } from '../Services/getUserActivity';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
+/**
+ * @name BarChartComp
+ * @description Chart to display User sessions
+ * @param {number} {props}
+ * @return {JSX.Element}} 
+ */
 
 const BarChartComp = (props) => {
   const userId = props.userId.id;
@@ -10,14 +18,18 @@ const BarChartComp = (props) => {
 
   useEffect(() => {
     async function getUserSessionOnLoad(id) {
-      const userData = await getUserSession(id);
-      setUserSessions(userData.data.sessions)
+      const userData = await getUserActivity(id);
+      setUserSessions(userData.sessions)
     }
-
     getUserSessionOnLoad(userId);
   }, []);
 
-  //Reformating Sessions label (2022-07-01,...) into (1,...)
+    /**
+     * @name CustomDatas
+     * @description Reformating Sessions label (2022-07-01,...) into (1,...)
+     * @param {Object} {data}
+     * @return {JSX.Element}} 
+    */
   function CustomDatas(data) {
     if (userSessions) {
       //Add the label to the data
@@ -72,5 +84,9 @@ const BarChartComp = (props) => {
     </div>
   )
 }
+
+BarChartComp.propTypes = {
+  formatedUserSession: PropTypes.array  
+};
 
 export default BarChartComp

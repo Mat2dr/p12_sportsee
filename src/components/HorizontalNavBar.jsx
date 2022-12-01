@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 
 import logo from '../utils/logo.png';
 
+/**
+ *@name HorizontalNavBar
+ *@description Component to display the horizontal navbar
+ * @return {JSX.Element}} 
+ */
 const HorizontalNavBar = () => {
   return (
     <div id='NavBar'>

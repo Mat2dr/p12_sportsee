@@ -448,3 +448,31 @@ a {
     font-weight: 600;
 }
 /* END PAGENOTFOUND CSS */
+
+/* NOT AN OBLIGATION CSS */
+@media (max-width: 1024px) {
+    body {
+        overflow-y: visible;
+    }
+    #Feed {
+        margin-left: 15px;
+    }
+    #NavBar-vertical {
+        display: none;
+    }
+    .data-recap {
+        flex-direction: column;
+    }
+    .charts-div {
+        width: 100%;
+        padding-right: 15px;
+    }
+    .charts-div-line-2 {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .recaps-div {
+        gap: 10px;
+        margin-right: 15px;
+    }
+}

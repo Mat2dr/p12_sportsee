@@ -5,6 +5,11 @@ import iconSwim from '../utils/swim.png';
 import iconBike from '../utils/bike.png';
 import iconWorkout from '../utils/workout.png';
 
+/**
+ *@name VerticalNavBar
+ *@description Component to display the vertical navbar
+ * @return {JSX.Element}} 
+ */
 const VerticalNavBar = () => {
   return (
     <div id='NavBar-vertical'>
